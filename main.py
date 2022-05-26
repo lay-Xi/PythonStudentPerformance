@@ -40,15 +40,19 @@ def get_best_student(student_data):
 def get_worst_student(student_data):
     pass
 
-student_data = []
+def main():
+    student_data = []
 
-for id in range(NUM_STUDENTS):
-    student_data.append(Student(load_report_card("students", id)))
+    for id in range(NUM_STUDENTS):
+        student_data.append(Student(load_report_card("students", id)))
 
-print(f"Average Student Grade: {get_average_student_mark(student_data):.2f}")
-print(f"Hardest Subject {get_hardest_subject(student_data)}")
-print(f"Easiest Subject: {get_easiest_subject(student_data)}")
-print(f"Best Performing Grade: {get_best_performing_grade(student_data)}")
-print(f"Worst Performing Grade: {get_worst_performing_grade(student_data)}")
-print(f"Best Student ID: {get_best_student(student_data)}")
-print(f"Worst Student ID: {get_worst_student(student_data)}")
+    print(f"Average Student Grade: {get_average_student_mark(student_data):.2f}")
+    print(f"Hardest Subject {get_hardest_subject(student_data)}")
+    print(f"Easiest Subject: {get_easiest_subject(student_data)}")
+    print(f"Best Performing Grade: {get_best_performing_grade(student_data)}")
+    print(f"Worst Performing Grade: {get_worst_performing_grade(student_data)}")
+    print(f"Best Student ID: {get_best_student(student_data)}")
+    print(f"Worst Student ID: {get_worst_student(student_data)}")
+
+if __name__ == "__main__":
+    main()
