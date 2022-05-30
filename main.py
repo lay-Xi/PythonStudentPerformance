@@ -44,7 +44,19 @@ def _get_subject_averages(student_data):
 
     return dict(sorted(subject_averages.items(), key= lambda subject: subject[1]))
 
+def _get_grade_averages(student_data):
+    grade_average_totals = {}
+    grade_student_count = {}
+    grade_averages = {}
 
+    for student in student_data:
+        grade_average_totals[student.grade] = grade_average_totals.get(student.grade, 0) + student.get_average()
+        grade_student_count[student.grade] = grade_student_count.get(student.grade, 0) + 1
+
+    for grade, average in grade_average_totals.items():
+        grade_averages[grade] = average / grade_student_count[grade]
+
+    return dict(sorted(grade_averages.items(), key= lambda grade: grade[1]))
 
 def get_hardest_subject(student_data):
     subject_averages = _get_subject_averages(student_data)
@@ -57,10 +69,14 @@ def get_easiest_subject(student_data):
     return list(subject_averages.keys())[len(subject_averages) - 1]
 
 def get_best_performing_grade(student_data):
-    pass
+    grade_averages = _get_grade_averages(student_data)
+
+    return list(grade_averages.keys())[len(grade_averages) - 1]
 
 def get_worst_performing_grade(student_data):
-    pass
+    grade_averages = _get_grade_averages(student_data)
+
+    return list(grade_averages.keys())[0]
 
 def get_best_student(student_data):
     pass
