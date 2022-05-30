@@ -79,10 +79,26 @@ def get_worst_performing_grade(student_data):
     return list(grade_averages.keys())[0]
 
 def get_best_student(student_data):
-    pass
+    high_score = 0
+    best_student = -1
+
+    for student in student_data:
+        if (student.get_average() > high_score):
+            high_score = student.get_average()
+            best_student = student.id
+
+    return best_student
 
 def get_worst_student(student_data):
-    pass
+    low_score = 100
+    worst_student = -1
+
+    for student in student_data:
+        if (student.get_average() < low_score):
+            low_score = student.get_average()
+            worst_student = student.id
+        
+    return worst_student
 
 def main():
     student_data = []
