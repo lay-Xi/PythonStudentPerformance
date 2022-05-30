@@ -5,7 +5,7 @@ class Student:
         self.math = report_card["math"]
         self.science = report_card["science"]
         self.history = report_card["history"]
-        self.english = report_card["history"]
+        self.english = report_card["english"]
         self.geography = report_card["geography"]
     
     def get_average(self):
